@@ -122,4 +122,47 @@ namespace BearAI
 	}
 
 
+
+	SmartNeuralNetwork::SmartNeuralNetwork() {}
+	SmartNeuralNetwork::~SmartNeuralNetwork() {}
+	void SmartNeuralNetwork::SetSize(std::size_t nLayers, std::vector<std::size_t> sLayers) {
+		if (nLayers == sLayers.size()) {
+			layers.resize(nLayers);
+			functions.resize(nLayers);
+			for (index i = 0; i < nLayers; i++) {
+				layers[i].Fill(sLayers[i], 0.0);
+			}
+			biases = layers;
+		}
+	}
+	void SmartNeuralNetwork::SetWeights() {
+		weights.resize(layers.size() - 1);
+		for (index i = 0; i < weights.size(); i++) {
+			weights[i].Fill(layers[i + 1].Length(), layers[i].Length(), 1.0);
+		}
+	}
+	void SmartNeuralNetwork::SetWeights(std::vector <Matrix>& _weights) { weights = _weights; }
+	std::vector <Vector>& SmartNeuralNetwork::Layers() { return layers; }
+	std::vector <Matrix>& SmartNeuralNetwork::Weights() { return weights; }
+	Vector& SmartNeuralNetwork::Layer(index ind) { return layers[ind]; }
+	Matrix& SmartNeuralNetwork::Weight_Layer(index ind) { return weights[ind]; }
+	double& SmartNeuralNetwork::Neuron(index l, index n) { return layers[l][n]; }
+	Vector& SmartNeuralNetwork::Weight_Group(index l, index n) { return weights[l][n]; }
+	double& SmartNeuralNetwork::Weight(index l, index n, index w) { return weights[l][n][w]; }
+	N_Function& SmartNeuralNetwork::Function(index layer) { return functions[layer]; }
+	Vector SmartNeuralNetwork::Test() {
+		for (index i = 1; i < layers.size(); i++) {
+			Vector v = (weights[i - 1] * layers[i - 1]) + biases[i - 1];
+			Vector vr;
+			for (index j = 0; j < v.Length(); j++) {
+				vr.VectorType().push_back(functions[i](v[i]));
+			}
+			if (vr.Length() == layers[i].Length()) { layers[i] = vr; }
+			else { return Vector(); }
+		}
+		return layers[layers.size() - 1];
+	}
+
+
+
 }

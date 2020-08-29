@@ -6,7 +6,7 @@
 
 #include "Neuron.h"
 
-#define BEARLAS_ALL
+#define LAS_ALL
 #include "BearLAS.h"
 
 namespace BearAI
@@ -101,10 +101,9 @@ namespace BearAI
 
 		N_Function& Function(index layer);
 
-		Vector& Train();
-		Vector& Train(Vector exp_out);
+		// Vector& Train(Vector exp_out);
 
-		Vector& Test();
+		Vector Test();
 
 	private:
 		std::vector <Vector> layers;
@@ -113,12 +112,6 @@ namespace BearAI
 		std::vector <N_Function> functions;
 		
 	};
-
-
-
-
-
-
 
 
 }
