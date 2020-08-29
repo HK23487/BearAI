@@ -2,7 +2,9 @@
 A C++ library for deep learning and neural networks.
 
 Free to use and apply to other software. <br>
-It is required for users to acknowledge the use of this software.
+It is required for users to acknowledge the use of this software
+<br>
+when used in other software.
 
 <hr>
 
