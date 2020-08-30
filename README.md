@@ -1,4 +1,4 @@
-# SmartBear
+# BearAI
 A C++ library for deep learning and neural networks.
 
 Free to use and apply to other software. <br>
@@ -19,14 +19,14 @@ Just type
 <code>#include "SmartBear.h"</code>
 to include all headers.
 <br>
-Note that SmartBear also uses another library
+Note that BearAI also uses another library
 BearLAS, a linear algebra library that is also free to use.
 <br>
 For BearLAS, do
 <code>#include "BearLAS.h"</code>
 to integrate BearLAS into your project.
 <hr>
- All SmartBear assets are contained inside the
+ All BearAI assets are contained inside the
 <code>BearAI</code>
  namespace, and all BearLAS assets are in the
 <code>BearLas</code>
