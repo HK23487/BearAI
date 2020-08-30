@@ -31,3 +31,5 @@ to integrate BearLAS into your project.
  namespace, and all BearLAS assets are in the
 <code>BearLas</code>
  namespace.
+<hr>
+Please see <a href="https://github.com/HK23487/SmartBear/wiki">https://github.com/HK23487/SmartBear/wiki</a> for full documentation.
